@@ -13,7 +13,7 @@ provider:
   runtime: nodejs14.x
   stage: production
   region: eu-west-1
-  profile: mobilevikings-dev
+  profile: mobilevikings-mas
   environment:
     GITHUB_WEBHOOK_SECRET: ${self:custom.secrets.GITHUB_WEBHOOK_SECRET}
     GITHUB_API_KEY: ${self:custom.secrets.GITHUB_API_KEY}
