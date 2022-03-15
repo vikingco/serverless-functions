@@ -3,18 +3,24 @@ service: github-webhooks
 plugins:
   - serverless-offline
   - serverless-secrets-plugin
+  - serverless-plugin-resource-tagging
 
 custom:
   secrets: ${file(secrets.${opt:stage, self:provider.stage}.yml)}
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs14.x
   stage: production
-  region: eu-central-1
+  region: eu-west-1
+  profile: mobilevikings-dev
   environment:
     GITHUB_WEBHOOK_SECRET: ${self:custom.secrets.GITHUB_WEBHOOK_SECRET}
     GITHUB_API_KEY: ${self:custom.secrets.GITHUB_API_KEY}
+  stackTags:
+    CreatedByt: "Serverless"
+    Repo: "Serverless-functions"
+    Service: "github-webhooks"
 
 functions:
   fixupValidator:
