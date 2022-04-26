@@ -47,7 +47,7 @@ You can deploy individual functions using serverless. Navigate to the function y
 
     $ cd github-webhooks
     $ yarn install
-    $ yarn sls deploy --verbose --aws-profile profileName
+    $ AWS_SDK_LOAD_CONFIG=1 sls deploy
 
 [aws-setup-link]: https://serverless.com/framework/docs/providers/aws/guide/credentials#creating-aws-access-keys
 [sls]: https://serverless.com/
