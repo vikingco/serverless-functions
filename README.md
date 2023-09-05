@@ -43,7 +43,7 @@ The runtime variables are included in the project. The [serverless-secrets-plugi
 
 ## Deployment
 
-You can deploy individual functions using serverless. Navigate to the function you wish to deploy, pull in the depencies, and use the deploy command.
+You can deploy individual functions using serverless. Navigate to the function you wish to deploy, pull in the dependencies, and use the deploy command.
 
     $ cd github-webhooks
     $ yarn install

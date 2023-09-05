@@ -10,7 +10,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs18.x
   stage: production
   region: eu-west-1
   profile: mobilevikings-mas
