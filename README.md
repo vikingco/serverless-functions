@@ -43,10 +43,14 @@ The runtime variables are included in the project. The [serverless-secrets-plugi
 
 ## Deployment
 
-You can deploy individual functions using serverless. Navigate to the function you wish to deploy, pull in the dependencies, and use the deploy command.
+Create the file `secrets.production.yml` with the environment variables `GITHUB_API_KEY` and `GITHUB_API_KEY`. The values for these can be found in the Bitwarden secret: `github-webhooks-old-serverless-functions` 
+Pull in the dependencies, install the Serverless plugins and use the deploy command.
 
     $ cd github-webhooks
     $ yarn install
+    $ serverless plugin install -n serverless-offline
+    $ serverless plugin install -n serverless-secrets-plugin
+    $ serverless plugin install -n serverless-plugin-resource-tagging
     $ AWS_SDK_LOAD_CONFIG=1 sls deploy
 
 [aws-setup-link]: https://serverless.com/framework/docs/providers/aws/guide/credentials#creating-aws-access-keys
