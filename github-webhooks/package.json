@@ -4,5 +4,10 @@
   },
   "scripts": {
     "sls": "node ../node_modules/serverless/bin/serverless"
+  },
+  "devDependencies": {
+    "serverless-offline": "^12.0.4",
+    "serverless-plugin-resource-tagging": "^1.2.0",
+    "serverless-secrets-plugin": "^0.1.0"
   }
 }
