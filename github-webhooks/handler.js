@@ -2,6 +2,7 @@ const requestValidator = require('./lib/requestValidation');
 const fixupValidator = require('./validators/fixupCommits');
 const openTaskValidator = require('./validators/openTasks');
 const pythonRequirementsValidator = require('./validators/pythonRequirements');
+const mergedDependencyValidator = require('./validators/mergedDependencies');
 
 /**
  * Returns the error to the client based on the provided message
@@ -67,5 +68,14 @@ module.exports.openTasks = (event, context, callback) => {
         data.pull_request.head.repo.full_name,
         data.pull_request.head.sha,
         data.pull_request.body);
+    });
+};
+
+module.exports.mergedDependencies = (event, context, callback) => {
+  handleRequest(event, callback)
+    .then((data) => {
+      mergedDependencyValidator.validateMergedDependencies(
+        data.pull_request.number,
+        data.pull_request.head.repo.full_name);
     });
 };

@@ -44,3 +44,10 @@ functions:
           path: github-tasks
           method: post
           cors: true
+  mergedDependenciesValidator:
+    handler: handler.mergedDependencies
+    events:
+      - http:
+          path: github-merged-dependencies
+          method: post
+          cors: true
