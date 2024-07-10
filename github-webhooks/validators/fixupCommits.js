@@ -15,7 +15,7 @@ const FixupValidator = function() {
             .then((commits) => {
                 const messages = commits.map((a) => a.commit.message);
                 const fixups = messages
-                    .filter((message) => message.startsWith('fixup!') || message.startsWith('squash!'));
+                    .filter((message) => message.startsWith('fixup!') || message.startsWith('squash!') || message.startsWith('amend!'));
                 let state = self.gitHubClient.COMMITSTATUS.SUCCESS;
                 let description = 'no fixups found, you\'re good to go!';
                 if (fixups.length > 0) {
