@@ -4,7 +4,7 @@ plugins:
   - serverless-offline
   - serverless-secrets-plugin
   - serverless-plugin-resource-tagging
-
+  - serverless-better-credentials
 custom:
   secrets: ${file(secrets.${opt:stage, self:provider.stage}.yml)}
 
