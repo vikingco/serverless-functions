@@ -12,7 +12,7 @@ const OpenTaskValidator = function() {
      * @param {string} prBody - Body of the pull request message
      */
     self.validateForOpenTasks = function(prNumber, repoName, commitHash, prBody) {
-        const openTasksLeft = /(-|\*)\s\[\s\]/g.test(prBody);
+        const openTasksLeft = /^[-*]\s\[\s\]/.test(prBody);
         if (openTasksLeft)
             self.gitHubClient.setCommitStatus(repoName, commitHash, self.gitHubClient.COMMITSTATUS.FAILURE, 
                 'Some tasks are not checked', 'github-tools/openTasks');
